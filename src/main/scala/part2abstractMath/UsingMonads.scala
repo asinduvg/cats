@@ -61,12 +61,12 @@ object UsingMonads {
     def issueRequest(connection: Connection, payload: String): M[String]
   }
 
-  def getResponse[M[_]](service: HttpService[M], payload: String)(implicit monad: Monad[M]): M[String] = {
-    for {
-      conn <- service.getConnection(config)
-      response <- service.issueRequest(conn, payload)
-    } yield response
-  }
+//  def getResponse[M[_]](service: HttpService[M], payload: String)(implicit monad: Monad[M]): M[String] = {
+//    for {
+//      conn <- service.getConnection(config)
+//      response <- service.issueRequest(conn, payload)
+//    } yield response
+//  }
 
   // DO NOT CHANGE THE CODE
 
@@ -123,8 +123,8 @@ object UsingMonads {
   } yield response
 
   def main(args: Array[String]): Unit = {
-    println(getResponse(OptionHttpService, "Hello Option"))
-    println(getResponse(AggressiveHttpService, "Hello, ErrorOr"))
+//    println(getResponse(OptionHttpService, "Hello Option"))
+//    println(getResponse(AggressiveHttpService, "Hello, ErrorOr"))
     println(responseOption)
     println(errorOrResponse)
   }
